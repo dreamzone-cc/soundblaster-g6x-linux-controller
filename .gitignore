@@ -1,0 +1,26 @@
+# Rust
+/target/
+Cargo.lock
+
+# Frontend
+/frontend/node_modules/
+/frontend/build/
+/frontend/.svelte-kit/
+
+# Packaging artifacts
+/dist/
+/packaging/flatpak/soundblaster-g6x
+/packaging/flatpak/soundblaster-g6x.desktop
+/packaging/flatpak/soundblaster-g6x.png
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+/packaging/flatpak/.flatpak-builder/

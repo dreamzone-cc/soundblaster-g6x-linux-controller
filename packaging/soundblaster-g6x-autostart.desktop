@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Sound Blaster G6X Controller
+Comment=Linux controller for Creative Sound Blaster G6/G6X USB DAC
+Exec=soundblaster-g6x --minimized
+Icon=soundblaster-g6x
+Type=Application
+Categories=AudioVideo;Audio;Settings;
+Keywords=audio;sound;equalizer;mixer;dac;creative;
+Terminal=false
+StartupNotify=false
+X-GNOME-Autostart-enabled=true
+X-GNOME-Autostart-Delay=3

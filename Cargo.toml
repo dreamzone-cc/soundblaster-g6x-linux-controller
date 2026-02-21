@@ -1,0 +1,28 @@
+[package]
+name = "linuxblaster_control"
+version = "1.1.0"
+edition = "2024"
+
+[dependencies]
+axum = { version = "0.7", features = ["macros"] }
+tokio = { version = "1", features = ["full"] }
+tower-http = { version = "0.5", features = ["fs", "cors"] }
+tray-icon = "0.19"
+tao = "0.30" # Required for event loop
+wry = "0.48" # Native WebView renderer
+rust-embed = "8.5"
+open = "5.3"
+hidapi = "2.6"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tracing = "0.1"
+tracing-subscriber = "0.3"
+phf = { version = "0.11", features = ["macros"] } # Updated to match common usage, keeping since it's used in build.rs result
+fuzzy-matcher = "0.3" # Keeping as it might be used
+mime_guess = "2.0"
+image = "0.24"
+
+
+[build-dependencies]
+phf_codegen = "0.13.1"
+walkdir = "2.5.0"
