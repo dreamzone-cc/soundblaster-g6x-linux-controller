@@ -47,7 +47,8 @@ fn main() {
     // Create the Native Window
     let window = WindowBuilder::new()
         .with_title("Sound Blaster G6X Controller")
-        .with_inner_size(LogicalSize::new(1280.0, 800.0))
+        .with_inner_size(LogicalSize::new(800.0, 640.0))
+        .with_resizable(false)
         .with_window_icon(Some(load_window_icon()))
         .with_visible(!start_minimized) // Hidden if --minimized (autostart)
         .build(&event_loop)
@@ -94,7 +95,7 @@ fn main() {
             _ => {}
         }
 
-        if let Ok(event) = MenuEvent::receiver().try_recv() {
+        while let Ok(event) = MenuEvent::receiver().try_recv() {
             if event.id == open_item.id() {
                 window.set_visible(true);
                 window.set_focus();
@@ -105,7 +106,7 @@ fn main() {
             }
         }
 
-        if let Ok(event) = TrayIconEvent::receiver().try_recv() {
+        while let Ok(event) = TrayIconEvent::receiver().try_recv() {
              match event {
                  TrayIconEvent::Click { button: MouseButton::Left, .. } | 
                  TrayIconEvent::DoubleClick { button: MouseButton::Left, .. } => {

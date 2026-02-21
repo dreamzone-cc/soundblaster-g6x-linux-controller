@@ -8,6 +8,11 @@
 }
 
 @layer base {
+    html {
+        font-size: 12px;
+        /* Scales down all 'rem' tailwind units to fit in 800x640 fixed window */
+    }
+
     body {
         @apply bg-neutral-900 text-neutral-100 antialiased;
         font-family: 'Inter', system-ui, sans-serif;
