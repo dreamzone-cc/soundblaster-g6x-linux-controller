@@ -213,6 +213,7 @@ sdk: org.gnome.Sdk
 command: soundblaster-g6x
 finish-args:
   - --share=ipc
+  - --share=network
   - --socket=x11
   - --socket=wayland
   - --socket=pulseaudio
