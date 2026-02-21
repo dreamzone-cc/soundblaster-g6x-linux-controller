@@ -1408,7 +1408,7 @@
                         <!-- ══════════════════════════════════════════════════ -->
                         <!-- MASTER OUTPUT (L / R) - Dedicated Premium Card    -->
                         <!-- ══════════════════════════════════════════════════ -->
-                        {#if $device.mixer && $device.mixer["Speaker"] && $device.mixer["Speaker"]["playback_vol"] !== undefined && $device.mixer["Speaker"]["playback_vol"] !== null}
+                        {#if $device.mixer && $device.mixer["Speaker"] !== undefined}
                             {@const spkData = $device.mixer["Speaker"]}
                             {@const spkVol = spkData.playback_vol || 0}
                             {@const spkL =
@@ -1475,11 +1475,11 @@
 
                                 <!-- L / R Channel Controls -->
                                 <div
-                                    class="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10"
+                                    class="grid grid-cols-2 gap-3 relative z-10"
                                 >
                                     <!-- LEFT CHANNEL -->
                                     <div
-                                        class="bg-[#0a0e14] border border-blue-500/10 rounded-xl p-5 space-y-4 hover:border-blue-500/30 transition-all duration-300"
+                                        class="bg-[#0a0e14] border border-blue-500/10 rounded-xl p-3 md:p-4 space-y-3 hover:border-blue-500/30 transition-all duration-300"
                                     >
                                         <div
                                             class="flex items-center justify-between"
@@ -1551,7 +1551,7 @@
 
                                     <!-- RIGHT CHANNEL -->
                                     <div
-                                        class="bg-[#0a0e14] border border-cyan-500/10 rounded-xl p-5 space-y-4 hover:border-cyan-500/30 transition-all duration-300"
+                                        class="bg-[#0a0e14] border border-cyan-500/10 rounded-xl p-3 md:p-4 space-y-3 hover:border-cyan-500/30 transition-all duration-300"
                                     >
                                         <div
                                             class="flex items-center justify-between"
@@ -1667,7 +1667,7 @@
                         <!-- ══════════════════════════════════════════════════ -->
                         <!-- MICROPHONE INPUT (L / R) - Dedicated Premium Card -->
                         <!-- ══════════════════════════════════════════════════ -->
-                        {#if $device.mixer && $device.mixer["External Mic"] && $device.mixer["External Mic"]["capture_vol"] !== undefined && $device.mixer["External Mic"]["capture_vol"] !== null}
+                        {#if $device.mixer && $device.mixer["External Mic"] !== undefined}
                             {@const micData = $device.mixer["External Mic"]}
                             {@const micVol = micData.capture_vol || 0}
                             {@const micL =
@@ -1735,11 +1735,11 @@
 
                                 <!-- L / R Channel Controls -->
                                 <div
-                                    class="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10"
+                                    class="grid grid-cols-2 gap-3 relative z-10"
                                 >
                                     <!-- LEFT CHANNEL -->
                                     <div
-                                        class="bg-[#120a0a] border border-red-500/10 rounded-xl p-5 space-y-4 hover:border-red-500/30 transition-all duration-300"
+                                        class="bg-[#140a0a] border border-red-500/10 rounded-xl p-3 md:p-4 space-y-3 hover:border-red-500/30 transition-all duration-300"
                                     >
                                         <div
                                             class="flex items-center justify-between"
@@ -1816,7 +1816,7 @@
 
                                     <!-- RIGHT CHANNEL -->
                                     <div
-                                        class="bg-[#120a0a] border border-rose-500/10 rounded-xl p-5 space-y-4 hover:border-rose-500/30 transition-all duration-300"
+                                        class="bg-[#140a0a] border border-rose-500/10 rounded-xl p-3 md:p-4 space-y-3 hover:border-rose-500/30 transition-all duration-300"
                                     >
                                         <div
                                             class="flex items-center justify-between"
@@ -1966,7 +1966,7 @@
                                 </div>
                                 <div class="space-y-6 relative z-10">
                                     {#each [{ name: "Speaker", label: "Master Output", key: "playback_vol" }, { name: "Line In", label: "Line In (Sidetone)", key: "playback_vol" }, { name: "External Mic", label: "Mic (Sidetone)", key: "playback_vol" }, { name: "S/PDIF In", label: "S/PDIF (Sidetone)", key: "playback_vol" }] as item}
-                                        {#if $device.mixer && $device.mixer[item.name] && $device.mixer[item.name][item.key] !== undefined && $device.mixer[item.name][item.key] !== null}
+                                        {#if $device.mixer && $device.mixer[item.name] !== undefined}
                                             {@const val =
                                                 $device.mixer[item.name][
                                                     item.key
@@ -2040,7 +2040,7 @@
                                 </div>
                                 <div class="space-y-6 relative z-10">
                                     {#each [{ name: "External Mic", label: "Microphone Input", key: "capture_vol" }, { name: "Line In", label: "Line In Input", key: "capture_vol" }, { name: "S/PDIF In", label: "S/PDIF Input", key: "capture_vol" }, { name: "What U Hear", label: "What U Hear (Stereo Mix)", key: "capture_vol" }] as item}
-                                        {#if $device.mixer && $device.mixer[item.name] && $device.mixer[item.name][item.key] !== undefined && $device.mixer[item.name][item.key] !== null}
+                                        {#if $device.mixer && $device.mixer[item.name] !== undefined}
                                             {@const val =
                                                 $device.mixer[item.name][
                                                     item.key

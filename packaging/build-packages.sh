@@ -13,7 +13,7 @@ OUTPUT_DIR="$PROJECT_DIR/dist"
 BINARY_NAME="linuxblaster_control"
 APP_NAME="soundblaster-g6x"
 APP_LABEL="Sound Blaster G6X Controller"
-VERSION="2.0.4"
+VERSION="2.0.5"
 ARCH="amd64"
 
 BINARY="$PROJECT_DIR/target/release/$BINARY_NAME"
