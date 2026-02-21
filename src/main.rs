@@ -96,8 +96,10 @@ fn main() {
             if event.id == open_item.id() {
                 window.set_visible(true);
                 window.set_focus();
+                window.request_user_attention(Some(tao::window::UserAttentionType::Critical));
             } else if event.id == quit_item.id() {
-                *control_flow = ControlFlow::Exit;
+                // Immediate clean exit, avoids waiting for background tasks to gracefully shutdown
+                std::process::exit(0);
             }
         }
 
@@ -107,6 +109,7 @@ fn main() {
                  TrayIconEvent::DoubleClick { button: MouseButton::Left, .. } => {
                      window.set_visible(true);
                      window.set_focus();
+                     window.request_user_attention(Some(tao::window::UserAttentionType::Critical));
                  }
                  _ => {}
              }

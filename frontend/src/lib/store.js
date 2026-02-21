@@ -12,6 +12,7 @@ function createDeviceStore() {
 
     let pollInterval;
     let pendingUpdate = false; // Block polling during updates
+    let debounceTimer; // Timer for debouncing forceLoad
 
     const load = async () => {
         // Skip poll if we have a pending update (prevents stale data overwriting optimistic UI)
@@ -54,6 +55,12 @@ function createDeviceStore() {
     const forceLoad = async () => {
         pendingUpdate = false;
         await load();
+    };
+
+    // Debounced forceLoad to avoid interrupting fast slider dragging
+    const debouncedForceLoad = () => {
+        if (debounceTimer) clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(forceLoad, 500); // Wait 500ms after last interaction
     };
 
     return {
@@ -109,8 +116,8 @@ function createDeviceStore() {
                     body: JSON.stringify(payload)
                 });
 
-                // Re-fetch authoritative state after server has processed
-                setTimeout(forceLoad, 200);
+                // Re-fetch authoritative state after server has processed (debounced)
+                debouncedForceLoad();
             } catch (err) {
                 console.error('Failed to update feature', err);
                 pendingUpdate = false;
@@ -134,8 +141,8 @@ function createDeviceStore() {
                     body: JSON.stringify({ name, ...payload })
                 });
 
-                // Re-fetch after server processed
-                setTimeout(forceLoad, 200);
+                // Re-fetch after server processed (debounced)
+                debouncedForceLoad();
             } catch (err) {
                 console.error('Failed to update mixer', err);
                 pendingUpdate = false;
