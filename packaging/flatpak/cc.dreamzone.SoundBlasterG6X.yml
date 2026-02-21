@@ -1,7 +1,7 @@
 app-id: cc.dreamzone.SoundBlasterG6X
-runtime: org.freedesktop.Platform
-runtime-version: '25.08'
-sdk: org.freedesktop.Sdk
+runtime: org.gnome.Platform
+runtime-version: '47'
+sdk: org.gnome.Sdk
 command: soundblaster-g6x
 finish-args:
   - --share=ipc

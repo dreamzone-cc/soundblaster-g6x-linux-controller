@@ -207,9 +207,9 @@ build_flatpak() {
     # Flatpak manifest
     cat > "$OUTPUT_DIR/cc.dreamzone.SoundBlasterG6X.yml" << EOF
 app-id: cc.dreamzone.SoundBlasterG6X
-runtime: org.freedesktop.Platform
-runtime-version: '23.08'
-sdk: org.freedesktop.Sdk
+runtime: org.gnome.Platform
+runtime-version: '47'
+sdk: org.gnome.Sdk
 command: soundblaster-g6x
 finish-args:
   - --share=ipc
