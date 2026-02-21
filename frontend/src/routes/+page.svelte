@@ -1375,7 +1375,7 @@
                         <!-- ══════════════════════════════════════════════════ -->
                         <!-- MASTER OUTPUT (L / R) - Dedicated Premium Card    -->
                         <!-- ══════════════════════════════════════════════════ -->
-                        {#if $device.mixer && $device.mixer["Speaker"] && $device.mixer["Speaker"]["playback_vol"] !== undefined}
+                        {#if $device.mixer && $device.mixer["Speaker"] && $device.mixer["Speaker"]["playback_vol"] !== undefined && $device.mixer["Speaker"]["playback_vol"] !== null}
                             {@const spkData = $device.mixer["Speaker"]}
                             {@const spkVol = spkData.playback_vol || 0}
                             {@const spkL =
@@ -1634,7 +1634,7 @@
                         <!-- ══════════════════════════════════════════════════ -->
                         <!-- MICROPHONE INPUT (L / R) - Dedicated Premium Card -->
                         <!-- ══════════════════════════════════════════════════ -->
-                        {#if $device.mixer && $device.mixer["External Mic"] && $device.mixer["External Mic"]["capture_vol"] !== undefined}
+                        {#if $device.mixer && $device.mixer["External Mic"] && $device.mixer["External Mic"]["capture_vol"] !== undefined && $device.mixer["External Mic"]["capture_vol"] !== null}
                             {@const micData = $device.mixer["External Mic"]}
                             {@const micVol = micData.capture_vol || 0}
                             {@const micL =
@@ -1933,7 +1933,7 @@
                                 </div>
                                 <div class="space-y-6 relative z-10">
                                     {#each [{ name: "Speaker", label: "Master Output", key: "playback_vol" }, { name: "Line In", label: "Line In (Sidetone)", key: "playback_vol" }, { name: "External Mic", label: "Mic (Sidetone)", key: "playback_vol" }, { name: "S/PDIF In", label: "S/PDIF (Sidetone)", key: "playback_vol" }] as item}
-                                        {#if $device.mixer && $device.mixer[item.name] && $device.mixer[item.name][item.key] !== undefined}
+                                        {#if $device.mixer && $device.mixer[item.name] && $device.mixer[item.name][item.key] !== undefined && $device.mixer[item.name][item.key] !== null}
                                             {@const val =
                                                 $device.mixer[item.name][
                                                     item.key
@@ -2007,7 +2007,7 @@
                                 </div>
                                 <div class="space-y-6 relative z-10">
                                     {#each [{ name: "External Mic", label: "Microphone Input", key: "capture_vol" }, { name: "Line In", label: "Line In Input", key: "capture_vol" }, { name: "S/PDIF In", label: "S/PDIF Input", key: "capture_vol" }, { name: "What U Hear", label: "What U Hear (Stereo Mix)", key: "capture_vol" }] as item}
-                                        {#if $device.mixer && $device.mixer[item.name] && $device.mixer[item.name][item.key] !== undefined}
+                                        {#if $device.mixer && $device.mixer[item.name] && $device.mixer[item.name][item.key] !== undefined && $device.mixer[item.name][item.key] !== null}
                                             {@const val =
                                                 $device.mixer[item.name][
                                                     item.key

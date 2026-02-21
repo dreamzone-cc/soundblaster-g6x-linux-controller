@@ -8,3 +8,4 @@ Categories=AudioVideo;Audio;Settings;
 Keywords=audio;sound;equalizer;mixer;dac;creative;
 Terminal=false
 StartupNotify=true
+StartupWMClass=soundblaster-g6x

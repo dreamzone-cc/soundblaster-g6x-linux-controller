@@ -13,7 +13,7 @@ OUTPUT_DIR="$PROJECT_DIR/dist"
 BINARY_NAME="linuxblaster_control"
 APP_NAME="soundblaster-g6x"
 APP_LABEL="Sound Blaster G6X Controller"
-VERSION="2.0.1"
+VERSION="2.0.2"
 ARCH="amd64"
 
 BINARY="$PROJECT_DIR/target/release/$BINARY_NAME"
@@ -230,7 +230,8 @@ modules:
     build-commands:
       - install -Dm755 soundblaster-g6x /app/bin/soundblaster-g6x
       - install -Dm644 soundblaster-g6x.desktop /app/share/applications/cc.dreamzone.SoundBlasterG6X.desktop
-      - install -Dm644 soundblaster-g6x.png /app/share/icons/hicolor/256x256/apps/soundblaster-g6x.png
+      - sed -i 's/^Icon=.*/Icon=cc.dreamzone.SoundBlasterG6X/g' /app/share/applications/cc.dreamzone.SoundBlasterG6X.desktop
+      - install -Dm644 soundblaster-g6x.png /app/share/icons/hicolor/256x256/apps/cc.dreamzone.SoundBlasterG6X.png
       - install -Dm755 libxdo.so.3 /app/lib/libxdo.so.3
       - install -Dm755 libayatana-appindicator3.so.1 /app/lib/libayatana-appindicator3.so.1
       - install -Dm755 libayatana-ido3-0.4.so.0 /app/lib/libayatana-ido3-0.4.so.0

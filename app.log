@@ -1,0 +1,431 @@
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.13s
+     Running `target/debug/linuxblaster_control`
+[2m2026-02-21T10:13:12.518348Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Found device:
+[2m2026-02-21T10:13:12.518399Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - vendor_id:     0x041e
+[2m2026-02-21T10:13:12.518407Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - product_id:    0x3256
+[2m2026-02-21T10:13:12.518415Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - interface:     4
+[2m2026-02-21T10:13:12.518423Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - manufacturer:  Creative Technology Ltd
+[2m2026-02-21T10:13:12.518429Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - product:       Sound BlasterX G6
+[2m2026-02-21T10:13:12.518434Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - serial_number: 81006A436DX
+[2m2026-02-21T10:13:12.569197Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Applying toggle: SBX
+[2m2026-02-21T10:13:12.569231Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - value: true
+[2m2026-02-21T10:13:12.569238Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== set_feature =====
+[2m2026-02-21T10:13:12.569245Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m feature: SBX
+[2m2026-02-21T10:13:12.569251Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   Some(true)
+[2m2026-02-21T10:13:12.569259Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Resolved Feature:
+[2m2026-02-21T10:13:12.569264Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - id:           Global(1)
+[2m2026-02-21T10:13:12.569269Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - value:        Toggle(false)
+[2m2026-02-21T10:13:12.569275Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - dependencies: None
+[2m2026-02-21T10:13:12.569280Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Determined final toggle value:
+[2m2026-02-21T10:13:12.569285Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - feature:    SBX
+[2m2026-02-21T10:13:12.569290Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - final_value: true
+[2m2026-02-21T10:13:12.569299Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== create_payload =====
+[2m2026-02-21T10:13:12.569304Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m id:      Global(1)
+[2m2026-02-21T10:13:12.569309Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   100.0
+[2m2026-02-21T10:13:12.569315Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m create_payload completed: Global(1)
+[2m2026-02-21T10:13:12.569336Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - data:   65 : [0x00, 0x5a, 0x26, 0x05, 0x07, 0x01, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00]
+[2m2026-02-21T10:13:12.569349Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - commit: 65 : [0x00, 0x5a, 0x26, 0x03, 0x08, 0xff, 0xff, 0x00, 0x00, 0x00, 0x00, 0x00]
+[2m2026-02-21T10:13:12.569356Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== create_payload completed =====
+[2m2026-02-21T10:13:12.569361Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Sending payload to device...
+[2m2026-02-21T10:13:12.569674Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Payload sent ¯\_(ツ)_/¯
+[2m2026-02-21T10:13:12.569691Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Updating feature value...
+[2m2026-02-21T10:13:12.569697Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== update_feature_value =====
+[2m2026-02-21T10:13:12.569703Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m feature: SBX
+[2m2026-02-21T10:13:12.569708Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   Toggle(true)
+[2m2026-02-21T10:13:12.569714Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Updating Feature Value SBX -> Toggle(true)
+[2m2026-02-21T10:13:12.569720Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== set_feature completed =====
+[2m2026-02-21T10:13:12.569732Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Applying toggle: Surround
+[2m2026-02-21T10:13:12.569736Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - value: true
+[2m2026-02-21T10:13:12.569740Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== set_feature =====
+[2m2026-02-21T10:13:12.569744Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m feature: Surround
+[2m2026-02-21T10:13:12.569748Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   Some(true)
+[2m2026-02-21T10:13:12.569754Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Resolved Feature:
+[2m2026-02-21T10:13:12.569758Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - id:           SBX(0)
+[2m2026-02-21T10:13:12.569764Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - value:        Toggle(false)
+[2m2026-02-21T10:13:12.569768Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - dependencies: Some(["SBX"])
+[2m2026-02-21T10:13:12.569775Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Determined final toggle value:
+[2m2026-02-21T10:13:12.569779Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - feature:    Surround
+[2m2026-02-21T10:13:12.569784Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - final_value: true
+[2m2026-02-21T10:13:12.569789Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Setting required dependencies:
+[2m2026-02-21T10:13:12.569794Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - dependencies: ["SBX"]
+[2m2026-02-21T10:13:12.569801Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Dependency already enabled: SBX
+[2m2026-02-21T10:13:12.569807Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== create_payload =====
+[2m2026-02-21T10:13:12.569812Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m id:      SBX(0)
+[2m2026-02-21T10:13:12.569816Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   100.0
+[2m2026-02-21T10:13:12.569822Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m create_payload completed: SBX(0)
+[2m2026-02-21T10:13:12.569834Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - data:   65 : [0x00, 0x5a, 0x12, 0x07, 0x01, 0x96, 0x00, 0x00, 0x00, 0x80, 0x3f, 0x00]
+[2m2026-02-21T10:13:12.569844Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - commit: 65 : [0x00, 0x5a, 0x11, 0x03, 0x01, 0x96, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00]
+[2m2026-02-21T10:13:12.569850Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== create_payload completed =====
+[2m2026-02-21T10:13:12.569855Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Sending payload to device...
+[2m2026-02-21T10:13:12.570185Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Payload sent ¯\_(ツ)_/¯
+[2m2026-02-21T10:13:12.570202Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Updating feature value...
+[2m2026-02-21T10:13:12.570208Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== update_feature_value =====
+[2m2026-02-21T10:13:12.570212Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m feature: Surround
+[2m2026-02-21T10:13:12.570217Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   Toggle(true)
+[2m2026-02-21T10:13:12.570222Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Updating Feature Value Surround -> Toggle(true)
+[2m2026-02-21T10:13:12.570226Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== set_feature completed =====
+[2m2026-02-21T10:13:12.570234Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Applying slider: Surround Slider
+[2m2026-02-21T10:13:12.570239Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - value: 64
+[2m2026-02-21T10:13:12.570246Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== create_payload =====
+[2m2026-02-21T10:13:12.570250Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m id:      SBX(1)
+[2m2026-02-21T10:13:12.570254Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   64.0
+[2m2026-02-21T10:13:12.570263Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m create_payload completed: SBX(1)
+[2m2026-02-21T10:13:12.570274Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - data:   65 : [0x00, 0x5a, 0x12, 0x07, 0x01, 0x96, 0x01, 0x0a, 0xd7, 0x23, 0x3f, 0x00]
+[2m2026-02-21T10:13:12.570283Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - commit: 65 : [0x00, 0x5a, 0x11, 0x03, 0x01, 0x96, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00]
+[2m2026-02-21T10:13:12.570290Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== create_payload completed =====
+[2m2026-02-21T10:13:12.574662Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== update_feature_value =====
+[2m2026-02-21T10:13:12.574678Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m feature: Surround Slider
+[2m2026-02-21T10:13:12.574684Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   Slider(64.0)
+[2m2026-02-21T10:13:12.574690Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Updating Feature Value Surround Slider -> Slider(64.0)
+[2m2026-02-21T10:13:12.574697Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Applying slider: Dialog+ Slider
+[2m2026-02-21T10:13:12.574702Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - value: 0.41
+[2m2026-02-21T10:13:12.574709Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== set_feature =====
+[2m2026-02-21T10:13:12.574713Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m feature: Dialog+
+[2m2026-02-21T10:13:12.574717Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   Some(true)
+[2m2026-02-21T10:13:12.574723Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Resolved Feature:
+[2m2026-02-21T10:13:12.574727Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - id:           SBX(2)
+[2m2026-02-21T10:13:12.574731Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - value:        Toggle(false)
+[2m2026-02-21T10:13:12.574736Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - dependencies: Some(["SBX"])
+[2m2026-02-21T10:13:12.574741Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Determined final toggle value:
+[2m2026-02-21T10:13:12.574746Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - feature:    Dialog+
+[2m2026-02-21T10:13:12.574750Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - final_value: true
+[2m2026-02-21T10:13:12.574756Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Setting required dependencies:
+[2m2026-02-21T10:13:12.574760Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - dependencies: ["SBX"]
+[2m2026-02-21T10:13:12.574766Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Dependency already enabled: SBX
+[2m2026-02-21T10:13:12.574771Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== create_payload =====
+[2m2026-02-21T10:13:12.574776Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m id:      SBX(2)
+[2m2026-02-21T10:13:12.574780Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   100.0
+[2m2026-02-21T10:13:12.574784Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m create_payload completed: SBX(2)
+[2m2026-02-21T10:13:12.574796Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - data:   65 : [0x00, 0x5a, 0x12, 0x07, 0x01, 0x96, 0x02, 0x00, 0x00, 0x80, 0x3f, 0x00]
+[2m2026-02-21T10:13:12.574806Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - commit: 65 : [0x00, 0x5a, 0x11, 0x03, 0x01, 0x96, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00]
+[2m2026-02-21T10:13:12.574812Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== create_payload completed =====
+[2m2026-02-21T10:13:12.574816Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Sending payload to device...
+[2m2026-02-21T10:13:12.575015Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Payload sent ¯\_(ツ)_/¯
+[2m2026-02-21T10:13:12.575023Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Updating feature value...
+[2m2026-02-21T10:13:12.575032Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== update_feature_value =====
+[2m2026-02-21T10:13:12.575037Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m feature: Dialog+
+[2m2026-02-21T10:13:12.575041Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   Toggle(true)
+[2m2026-02-21T10:13:12.575046Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Updating Feature Value Dialog+ -> Toggle(true)
+[2m2026-02-21T10:13:12.575051Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== set_feature completed =====
+[2m2026-02-21T10:13:12.575055Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== create_payload =====
+[2m2026-02-21T10:13:12.575059Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m id:      SBX(3)
+[2m2026-02-21T10:13:12.575063Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   0.41
+[2m2026-02-21T10:13:12.575067Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m create_payload completed: SBX(3)
+[2m2026-02-21T10:13:12.575077Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - data:   65 : [0x00, 0x5a, 0x12, 0x07, 0x01, 0x96, 0x03, 0x4b, 0x59, 0x86, 0x3b, 0x00]
+[2m2026-02-21T10:13:12.575085Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - commit: 65 : [0x00, 0x5a, 0x11, 0x03, 0x01, 0x96, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00]
+[2m2026-02-21T10:13:12.575090Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== create_payload completed =====
+[2m2026-02-21T10:13:12.575295Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== update_feature_value =====
+[2m2026-02-21T10:13:12.575303Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m feature: Dialog+ Slider
+[2m2026-02-21T10:13:12.575307Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   Slider(0.41)
+[2m2026-02-21T10:13:12.575313Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Updating Feature Value Dialog+ Slider -> Slider(0.41)
+[2m2026-02-21T10:13:12.575318Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Applying slider: Smart Volume Slider
+[2m2026-02-21T10:13:12.575322Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - value: 0.5
+[2m2026-02-21T10:13:12.575329Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== set_feature =====
+[2m2026-02-21T10:13:12.575334Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m feature: Smart Volume
+[2m2026-02-21T10:13:12.575338Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   Some(true)
+[2m2026-02-21T10:13:12.575343Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Resolved Feature:
+[2m2026-02-21T10:13:12.575347Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - id:           SBX(4)
+[2m2026-02-21T10:13:12.575351Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - value:        Toggle(false)
+[2m2026-02-21T10:13:12.575356Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - dependencies: Some(["SBX"])
+[2m2026-02-21T10:13:12.575361Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Determined final toggle value:
+[2m2026-02-21T10:13:12.575365Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - feature:    Smart Volume
+[2m2026-02-21T10:13:12.575369Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - final_value: true
+[2m2026-02-21T10:13:12.575373Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Setting required dependencies:
+[2m2026-02-21T10:13:12.575379Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - dependencies: ["SBX"]
+[2m2026-02-21T10:13:12.575384Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Dependency already enabled: SBX
+[2m2026-02-21T10:13:12.575389Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== create_payload =====
+[2m2026-02-21T10:13:12.575393Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m id:      SBX(4)
+[2m2026-02-21T10:13:12.575397Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   100.0
+[2m2026-02-21T10:13:12.575402Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m create_payload completed: SBX(4)
+[2m2026-02-21T10:13:12.575413Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - data:   65 : [0x00, 0x5a, 0x12, 0x07, 0x01, 0x96, 0x04, 0x00, 0x00, 0x80, 0x3f, 0x00]
+[2m2026-02-21T10:13:12.575422Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - commit: 65 : [0x00, 0x5a, 0x11, 0x03, 0x01, 0x96, 0x04, 0x00, 0x00, 0x00, 0x00, 0x00]
+[2m2026-02-21T10:13:12.575429Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== create_payload completed =====
+[2m2026-02-21T10:13:12.575433Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Sending payload to device...
+[2m2026-02-21T10:13:12.575641Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Payload sent ¯\_(ツ)_/¯
+[2m2026-02-21T10:13:12.575651Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Updating feature value...
+[2m2026-02-21T10:13:12.575656Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== update_feature_value =====
+[2m2026-02-21T10:13:12.575660Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m feature: Smart Volume
+[2m2026-02-21T10:13:12.575664Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   Toggle(true)
+[2m2026-02-21T10:13:12.575669Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Updating Feature Value Smart Volume -> Toggle(true)
+[2m2026-02-21T10:13:12.575674Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== set_feature completed =====
+[2m2026-02-21T10:13:12.575678Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== create_payload =====
+[2m2026-02-21T10:13:12.575683Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m id:      SBX(5)
+[2m2026-02-21T10:13:12.575687Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   0.5
+[2m2026-02-21T10:13:12.575691Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m create_payload completed: SBX(5)
+[2m2026-02-21T10:13:12.575701Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - data:   65 : [0x00, 0x5a, 0x12, 0x07, 0x01, 0x96, 0x05, 0x0a, 0xd7, 0xa3, 0x3b, 0x00]
+[2m2026-02-21T10:13:12.575709Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - commit: 65 : [0x00, 0x5a, 0x11, 0x03, 0x01, 0x96, 0x05, 0x00, 0x00, 0x00, 0x00, 0x00]
+[2m2026-02-21T10:13:12.575715Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== create_payload completed =====
+[2m2026-02-21T10:13:12.575902Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== update_feature_value =====
+[2m2026-02-21T10:13:12.575909Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m feature: Smart Volume Slider
+[2m2026-02-21T10:13:12.575914Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   Slider(0.5)
+[2m2026-02-21T10:13:12.575919Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Updating Feature Value Smart Volume Slider -> Slider(0.5)
+[2m2026-02-21T10:13:12.575925Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Applying slider: Smart Volume Special
+[2m2026-02-21T10:13:12.575929Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - value: 1
+[2m2026-02-21T10:13:12.575935Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== create_payload =====
+[2m2026-02-21T10:13:12.575939Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m id:      SBX(6)
+[2m2026-02-21T10:13:12.575944Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   1.0
+[2m2026-02-21T10:13:12.575948Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m create_payload completed: SBX(6)
+[2m2026-02-21T10:13:12.575956Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - data:   65 : [0x00, 0x5a, 0x12, 0x07, 0x01, 0x96, 0x06, 0x0a, 0xd7, 0x23, 0x3c, 0x00]
+[2m2026-02-21T10:13:12.575965Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - commit: 65 : [0x00, 0x5a, 0x11, 0x03, 0x01, 0x96, 0x06, 0x00, 0x00, 0x00, 0x00, 0x00]
+[2m2026-02-21T10:13:12.575971Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== create_payload completed =====
+[2m2026-02-21T10:13:12.576201Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== update_feature_value =====
+[2m2026-02-21T10:13:12.576208Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m feature: Smart Volume Special
+[2m2026-02-21T10:13:12.576212Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   Slider(1.0)
+[2m2026-02-21T10:13:12.576217Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Updating Feature Value Smart Volume Special -> Slider(1.0)
+[2m2026-02-21T10:13:12.576222Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Applying slider: Crystalizer Slider
+[2m2026-02-21T10:13:12.576227Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - value: 0.38
+[2m2026-02-21T10:13:12.576233Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== set_feature =====
+[2m2026-02-21T10:13:12.576237Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m feature: Crystalizer
+[2m2026-02-21T10:13:12.576241Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   Some(true)
+[2m2026-02-21T10:13:12.576247Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Resolved Feature:
+[2m2026-02-21T10:13:12.576251Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - id:           SBX(7)
+[2m2026-02-21T10:13:12.576255Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - value:        Toggle(false)
+[2m2026-02-21T10:13:12.576260Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - dependencies: Some(["SBX"])
+[2m2026-02-21T10:13:12.576264Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Determined final toggle value:
+[2m2026-02-21T10:13:12.576268Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - feature:    Crystalizer
+[2m2026-02-21T10:13:12.576272Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - final_value: true
+[2m2026-02-21T10:13:12.576276Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Setting required dependencies:
+[2m2026-02-21T10:13:12.576280Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - dependencies: ["SBX"]
+[2m2026-02-21T10:13:12.576286Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Dependency already enabled: SBX
+[2m2026-02-21T10:13:12.576291Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== create_payload =====
+[2m2026-02-21T10:13:12.576295Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m id:      SBX(7)
+[2m2026-02-21T10:13:12.576299Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   100.0
+[2m2026-02-21T10:13:12.576303Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m create_payload completed: SBX(7)
+[2m2026-02-21T10:13:12.576312Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - data:   65 : [0x00, 0x5a, 0x12, 0x07, 0x01, 0x96, 0x07, 0x00, 0x00, 0x80, 0x3f, 0x00]
+[2m2026-02-21T10:13:12.576321Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - commit: 65 : [0x00, 0x5a, 0x11, 0x03, 0x01, 0x96, 0x07, 0x00, 0x00, 0x00, 0x00, 0x00]
+[2m2026-02-21T10:13:12.576326Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== create_payload completed =====
+[2m2026-02-21T10:13:12.576331Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Sending payload to device...
+[2m2026-02-21T10:13:12.576533Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Payload sent ¯\_(ツ)_/¯
+[2m2026-02-21T10:13:12.576539Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Updating feature value...
+[2m2026-02-21T10:13:12.576543Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== update_feature_value =====
+[2m2026-02-21T10:13:12.576547Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m feature: Crystalizer
+[2m2026-02-21T10:13:12.576551Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   Toggle(true)
+[2m2026-02-21T10:13:12.576558Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Updating Feature Value Crystalizer -> Toggle(true)
+[2m2026-02-21T10:13:12.576562Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== set_feature completed =====
+[2m2026-02-21T10:13:12.576582Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== create_payload =====
+[2m2026-02-21T10:13:12.576586Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m id:      SBX(8)
+[2m2026-02-21T10:13:12.576590Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   0.38
+[2m2026-02-21T10:13:12.576594Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m create_payload completed: SBX(8)
+[2m2026-02-21T10:13:12.576602Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - data:   65 : [0x00, 0x5a, 0x12, 0x07, 0x01, 0x96, 0x08, 0x6c, 0x09, 0x79, 0x3b, 0x00]
+[2m2026-02-21T10:13:12.576611Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - commit: 65 : [0x00, 0x5a, 0x11, 0x03, 0x01, 0x96, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00]
+[2m2026-02-21T10:13:12.576616Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== create_payload completed =====
+[2m2026-02-21T10:13:12.576902Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== update_feature_value =====
+[2m2026-02-21T10:13:12.576909Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m feature: Crystalizer Slider
+[2m2026-02-21T10:13:12.576914Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   Slider(0.38)
+[2m2026-02-21T10:13:12.576919Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Updating Feature Value Crystalizer Slider -> Slider(0.38)
+[2m2026-02-21T10:13:12.576925Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Applying toggle: Equalizer
+[2m2026-02-21T10:13:12.576929Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - value: true
+[2m2026-02-21T10:13:12.576933Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== set_feature =====
+[2m2026-02-21T10:13:12.576937Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m feature: Equalizer
+[2m2026-02-21T10:13:12.576941Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   Some(true)
+[2m2026-02-21T10:13:12.576947Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Resolved Feature:
+[2m2026-02-21T10:13:12.576951Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - id:           SBX(9)
+[2m2026-02-21T10:13:12.576955Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - value:        Toggle(false)
+[2m2026-02-21T10:13:12.576959Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - dependencies: Some(["SBX"])
+[2m2026-02-21T10:13:12.576963Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Determined final toggle value:
+[2m2026-02-21T10:13:12.576967Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - feature:    Equalizer
+[2m2026-02-21T10:13:12.576972Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - final_value: true
+[2m2026-02-21T10:13:12.576976Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Setting required dependencies:
+[2m2026-02-21T10:13:12.576980Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - dependencies: ["SBX"]
+[2m2026-02-21T10:13:12.576986Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Dependency already enabled: SBX
+[2m2026-02-21T10:13:12.576990Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== create_payload =====
+[2m2026-02-21T10:13:12.576994Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m id:      SBX(9)
+[2m2026-02-21T10:13:12.576998Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   100.0
+[2m2026-02-21T10:13:12.577001Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m create_payload completed: SBX(9)
+[2m2026-02-21T10:13:12.577010Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - data:   65 : [0x00, 0x5a, 0x12, 0x07, 0x01, 0x96, 0x09, 0x00, 0x00, 0x80, 0x3f, 0x00]
+[2m2026-02-21T10:13:12.577019Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - commit: 65 : [0x00, 0x5a, 0x11, 0x03, 0x01, 0x96, 0x09, 0x00, 0x00, 0x00, 0x00, 0x00]
+[2m2026-02-21T10:13:12.577024Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== create_payload completed =====
+[2m2026-02-21T10:13:12.577029Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Sending payload to device...
+[2m2026-02-21T10:13:12.577291Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Payload sent ¯\_(ツ)_/¯
+[2m2026-02-21T10:13:12.577297Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Updating feature value...
+[2m2026-02-21T10:13:12.577301Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== update_feature_value =====
+[2m2026-02-21T10:13:12.577305Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m feature: Equalizer
+[2m2026-02-21T10:13:12.577309Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   Toggle(true)
+[2m2026-02-21T10:13:12.577314Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Updating Feature Value Equalizer -> Toggle(true)
+[2m2026-02-21T10:13:12.577320Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== set_feature completed =====
+[2m2026-02-21T10:13:12.577324Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Applying slider: EQ 31Hz
+[2m2026-02-21T10:13:12.577328Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - value: 4
+[2m2026-02-21T10:13:12.577335Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== create_payload =====
+[2m2026-02-21T10:13:12.577339Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m id:      SBX(11)
+[2m2026-02-21T10:13:12.577343Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   4.0
+[2m2026-02-21T10:13:12.577347Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m create_payload completed: SBX(11)
+[2m2026-02-21T10:13:12.577356Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - data:   65 : [0x00, 0x5a, 0x12, 0x07, 0x01, 0x96, 0x0b, 0x00, 0x00, 0x80, 0x40, 0x00]
+[2m2026-02-21T10:13:12.577364Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - commit: 65 : [0x00, 0x5a, 0x11, 0x03, 0x01, 0x96, 0x0b, 0x00, 0x00, 0x00, 0x00, 0x00]
+[2m2026-02-21T10:13:12.577371Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== create_payload completed =====
+[2m2026-02-21T10:13:12.577631Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== update_feature_value =====
+[2m2026-02-21T10:13:12.577637Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m feature: EQ 31Hz
+[2m2026-02-21T10:13:12.577641Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   Slider(4.0)
+[2m2026-02-21T10:13:12.577646Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Updating Feature Value EQ 31Hz -> Slider(4.0)
+[2m2026-02-21T10:13:12.577651Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Applying slider: EQ 62Hz
+[2m2026-02-21T10:13:12.577656Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - value: 2
+[2m2026-02-21T10:13:12.577662Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== create_payload =====
+[2m2026-02-21T10:13:12.577666Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m id:      SBX(12)
+[2m2026-02-21T10:13:12.577670Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   2.0
+[2m2026-02-21T10:13:12.577674Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m create_payload completed: SBX(12)
+[2m2026-02-21T10:13:12.577682Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - data:   65 : [0x00, 0x5a, 0x12, 0x07, 0x01, 0x96, 0x0c, 0x00, 0x00, 0x00, 0x40, 0x00]
+[2m2026-02-21T10:13:12.577691Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - commit: 65 : [0x00, 0x5a, 0x11, 0x03, 0x01, 0x96, 0x0c, 0x00, 0x00, 0x00, 0x00, 0x00]
+[2m2026-02-21T10:13:12.577696Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== create_payload completed =====
+[2m2026-02-21T10:13:12.577906Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== update_feature_value =====
+[2m2026-02-21T10:13:12.577912Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m feature: EQ 62Hz
+[2m2026-02-21T10:13:12.577916Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   Slider(2.0)
+[2m2026-02-21T10:13:12.577922Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Updating Feature Value EQ 62Hz -> Slider(2.0)
+[2m2026-02-21T10:13:12.577930Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Applying slider: EQ 125Hz
+[2m2026-02-21T10:13:12.577934Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - value: -2
+[2m2026-02-21T10:13:12.577941Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== create_payload =====
+[2m2026-02-21T10:13:12.577945Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m id:      SBX(13)
+[2m2026-02-21T10:13:12.577949Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   -2.0
+[2m2026-02-21T10:13:12.577953Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m create_payload completed: SBX(13)
+[2m2026-02-21T10:13:12.577961Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - data:   65 : [0x00, 0x5a, 0x12, 0x07, 0x01, 0x96, 0x0d, 0x00, 0x00, 0x00, 0xc0, 0x00]
+[2m2026-02-21T10:13:12.577970Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - commit: 65 : [0x00, 0x5a, 0x11, 0x03, 0x01, 0x96, 0x0d, 0x00, 0x00, 0x00, 0x00, 0x00]
+[2m2026-02-21T10:13:12.577975Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== create_payload completed =====
+[2m2026-02-21T10:13:12.578208Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== update_feature_value =====
+[2m2026-02-21T10:13:12.578214Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m feature: EQ 125Hz
+[2m2026-02-21T10:13:12.578218Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   Slider(-2.0)
+[2m2026-02-21T10:13:12.578224Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Updating Feature Value EQ 125Hz -> Slider(-2.0)
+[2m2026-02-21T10:13:12.578228Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Applying slider: EQ 500Hz
+[2m2026-02-21T10:13:12.578232Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - value: 2
+[2m2026-02-21T10:13:12.578239Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== create_payload =====
+[2m2026-02-21T10:13:12.578244Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m id:      SBX(15)
+[2m2026-02-21T10:13:12.578248Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   2.0
+[2m2026-02-21T10:13:12.578251Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m create_payload completed: SBX(15)
+[2m2026-02-21T10:13:12.578260Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - data:   65 : [0x00, 0x5a, 0x12, 0x07, 0x01, 0x96, 0x0f, 0x00, 0x00, 0x00, 0x40, 0x00]
+[2m2026-02-21T10:13:12.578269Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - commit: 65 : [0x00, 0x5a, 0x11, 0x03, 0x01, 0x96, 0x0f, 0x00, 0x00, 0x00, 0x00, 0x00]
+[2m2026-02-21T10:13:12.578274Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== create_payload completed =====
+[2m2026-02-21T10:13:12.578525Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== update_feature_value =====
+[2m2026-02-21T10:13:12.578531Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m feature: EQ 500Hz
+[2m2026-02-21T10:13:12.578535Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   Slider(2.0)
+[2m2026-02-21T10:13:12.578541Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Updating Feature Value EQ 500Hz -> Slider(2.0)
+[2m2026-02-21T10:13:12.578546Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Applying slider: EQ 1kHz
+[2m2026-02-21T10:13:12.578550Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - value: 4
+[2m2026-02-21T10:13:12.578556Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== create_payload =====
+[2m2026-02-21T10:13:12.578561Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m id:      SBX(16)
+[2m2026-02-21T10:13:12.578565Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   4.0
+[2m2026-02-21T10:13:12.578569Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m create_payload completed: SBX(16)
+[2m2026-02-21T10:13:12.578577Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - data:   65 : [0x00, 0x5a, 0x12, 0x07, 0x01, 0x96, 0x10, 0x00, 0x00, 0x80, 0x40, 0x00]
+[2m2026-02-21T10:13:12.578588Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - commit: 65 : [0x00, 0x5a, 0x11, 0x03, 0x01, 0x96, 0x10, 0x00, 0x00, 0x00, 0x00, 0x00]
+[2m2026-02-21T10:13:12.578594Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== create_payload completed =====
+[2m2026-02-21T10:13:12.578823Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== update_feature_value =====
+[2m2026-02-21T10:13:12.578830Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m feature: EQ 1kHz
+[2m2026-02-21T10:13:12.578834Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   Slider(4.0)
+[2m2026-02-21T10:13:12.578843Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Updating Feature Value EQ 1kHz -> Slider(4.0)
+[2m2026-02-21T10:13:12.578851Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Applying slider: EQ 2kHz
+[2m2026-02-21T10:13:12.578856Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - value: 6
+[2m2026-02-21T10:13:12.578863Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== create_payload =====
+[2m2026-02-21T10:13:12.578868Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m id:      SBX(17)
+[2m2026-02-21T10:13:12.578872Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   6.0
+[2m2026-02-21T10:13:12.578876Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m create_payload completed: SBX(17)
+[2m2026-02-21T10:13:12.578884Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - data:   65 : [0x00, 0x5a, 0x12, 0x07, 0x01, 0x96, 0x11, 0x00, 0x00, 0xc0, 0x40, 0x00]
+[2m2026-02-21T10:13:12.578892Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - commit: 65 : [0x00, 0x5a, 0x11, 0x03, 0x01, 0x96, 0x11, 0x00, 0x00, 0x00, 0x00, 0x00]
+[2m2026-02-21T10:13:12.578904Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== create_payload completed =====
+[2m2026-02-21T10:13:12.579151Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== update_feature_value =====
+[2m2026-02-21T10:13:12.579157Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m feature: EQ 2kHz
+[2m2026-02-21T10:13:12.579161Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   Slider(6.0)
+[2m2026-02-21T10:13:12.579167Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Updating Feature Value EQ 2kHz -> Slider(6.0)
+[2m2026-02-21T10:13:12.579171Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Applying slider: EQ 4kHz
+[2m2026-02-21T10:13:12.579175Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - value: 8
+[2m2026-02-21T10:13:12.579183Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== create_payload =====
+[2m2026-02-21T10:13:12.579187Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m id:      SBX(18)
+[2m2026-02-21T10:13:12.579191Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   8.0
+[2m2026-02-21T10:13:12.579195Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m create_payload completed: SBX(18)
+[2m2026-02-21T10:13:12.579204Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - data:   65 : [0x00, 0x5a, 0x12, 0x07, 0x01, 0x96, 0x12, 0x00, 0x00, 0x00, 0x41, 0x00]
+[2m2026-02-21T10:13:12.579213Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - commit: 65 : [0x00, 0x5a, 0x11, 0x03, 0x01, 0x96, 0x12, 0x00, 0x00, 0x00, 0x00, 0x00]
+[2m2026-02-21T10:13:12.579218Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== create_payload completed =====
+[2m2026-02-21T10:13:12.579425Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== update_feature_value =====
+[2m2026-02-21T10:13:12.579432Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m feature: EQ 4kHz
+[2m2026-02-21T10:13:12.579436Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   Slider(8.0)
+[2m2026-02-21T10:13:12.579442Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Updating Feature Value EQ 4kHz -> Slider(8.0)
+[2m2026-02-21T10:13:12.579447Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Applying slider: EQ 8kHz
+[2m2026-02-21T10:13:12.579454Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - value: 6
+[2m2026-02-21T10:13:12.579461Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== create_payload =====
+[2m2026-02-21T10:13:12.579466Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m id:      SBX(19)
+[2m2026-02-21T10:13:12.579470Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   6.0
+[2m2026-02-21T10:13:12.579474Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m create_payload completed: SBX(19)
+[2m2026-02-21T10:13:12.579483Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - data:   65 : [0x00, 0x5a, 0x12, 0x07, 0x01, 0x96, 0x13, 0x00, 0x00, 0xc0, 0x40, 0x00]
+[2m2026-02-21T10:13:12.579492Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - commit: 65 : [0x00, 0x5a, 0x11, 0x03, 0x01, 0x96, 0x13, 0x00, 0x00, 0x00, 0x00, 0x00]
+[2m2026-02-21T10:13:12.579497Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== create_payload completed =====
+[2m2026-02-21T10:13:12.579777Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== update_feature_value =====
+[2m2026-02-21T10:13:12.579784Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m feature: EQ 8kHz
+[2m2026-02-21T10:13:12.579788Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   Slider(6.0)
+[2m2026-02-21T10:13:12.579794Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Updating Feature Value EQ 8kHz -> Slider(6.0)
+[2m2026-02-21T10:13:12.579799Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Applying slider: EQ 16kHz
+[2m2026-02-21T10:13:12.579803Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - value: 4
+[2m2026-02-21T10:13:12.579810Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== create_payload =====
+[2m2026-02-21T10:13:12.579815Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m id:      SBX(20)
+[2m2026-02-21T10:13:12.579819Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   4.0
+[2m2026-02-21T10:13:12.579823Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m create_payload completed: SBX(20)
+[2m2026-02-21T10:13:12.579831Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - data:   65 : [0x00, 0x5a, 0x12, 0x07, 0x01, 0x96, 0x14, 0x00, 0x00, 0x80, 0x40, 0x00]
+[2m2026-02-21T10:13:12.579840Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - commit: 65 : [0x00, 0x5a, 0x11, 0x03, 0x01, 0x96, 0x14, 0x00, 0x00, 0x00, 0x00, 0x00]
+[2m2026-02-21T10:13:12.579846Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== create_payload completed =====
+[2m2026-02-21T10:13:12.580057Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== update_feature_value =====
+[2m2026-02-21T10:13:12.580064Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m feature: EQ 16kHz
+[2m2026-02-21T10:13:12.580068Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   Slider(4.0)
+[2m2026-02-21T10:13:12.580075Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Updating Feature Value EQ 16kHz -> Slider(4.0)
+[2m2026-02-21T10:13:12.580079Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Applying slider: Bass Slider
+[2m2026-02-21T10:13:12.580083Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - value: 0.56
+[2m2026-02-21T10:13:12.580092Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== set_feature =====
+[2m2026-02-21T10:13:12.580097Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m feature: Bass
+[2m2026-02-21T10:13:12.580101Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   Some(true)
+[2m2026-02-21T10:13:12.580107Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Resolved Feature:
+[2m2026-02-21T10:13:12.580111Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - id:           SBX(24)
+[2m2026-02-21T10:13:12.580116Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - value:        Toggle(false)
+[2m2026-02-21T10:13:12.580120Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - dependencies: Some(["SBX"])
+[2m2026-02-21T10:13:12.580127Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Determined final toggle value:
+[2m2026-02-21T10:13:12.580132Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - feature:    Bass
+[2m2026-02-21T10:13:12.580136Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - final_value: true
+[2m2026-02-21T10:13:12.580141Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Setting required dependencies:
+[2m2026-02-21T10:13:12.580145Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - dependencies: ["SBX"]
+[2m2026-02-21T10:13:12.580150Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Dependency already enabled: SBX
+[2m2026-02-21T10:13:12.580154Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== create_payload =====
+[2m2026-02-21T10:13:12.580159Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m id:      SBX(24)
+[2m2026-02-21T10:13:12.580163Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   100.0
+[2m2026-02-21T10:13:12.580167Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m create_payload completed: SBX(24)
+[2m2026-02-21T10:13:12.580175Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - data:   65 : [0x00, 0x5a, 0x12, 0x07, 0x01, 0x96, 0x18, 0x00, 0x00, 0x80, 0x3f, 0x00]
+[2m2026-02-21T10:13:12.580185Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - commit: 65 : [0x00, 0x5a, 0x11, 0x03, 0x01, 0x96, 0x18, 0x00, 0x00, 0x00, 0x00, 0x00]
+[2m2026-02-21T10:13:12.580190Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== create_payload completed =====
+[2m2026-02-21T10:13:12.580194Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Sending payload to device...
+[2m2026-02-21T10:13:12.580399Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Payload sent ¯\_(ツ)_/¯
+[2m2026-02-21T10:13:12.580406Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Updating feature value...
+[2m2026-02-21T10:13:12.580411Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== update_feature_value =====
+[2m2026-02-21T10:13:12.580415Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m feature: Bass
+[2m2026-02-21T10:13:12.580419Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   Toggle(true)
+[2m2026-02-21T10:13:12.580425Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Updating Feature Value Bass -> Toggle(true)
+[2m2026-02-21T10:13:12.580430Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== set_feature completed =====
+[2m2026-02-21T10:13:12.580435Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== create_payload =====
+[2m2026-02-21T10:13:12.580439Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m id:      SBX(25)
+[2m2026-02-21T10:13:12.580443Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   0.56
+[2m2026-02-21T10:13:12.580447Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m create_payload completed: SBX(25)
+[2m2026-02-21T10:13:12.580456Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - data:   65 : [0x00, 0x5a, 0x12, 0x07, 0x01, 0x96, 0x19, 0x34, 0x80, 0xb7, 0x3b, 0x00]
+[2m2026-02-21T10:13:12.580465Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - commit: 65 : [0x00, 0x5a, 0x11, 0x03, 0x01, 0x96, 0x19, 0x00, 0x00, 0x00, 0x00, 0x00]
+[2m2026-02-21T10:13:12.580470Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== create_payload completed =====
+[2m2026-02-21T10:13:12.580697Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== update_feature_value =====
+[2m2026-02-21T10:13:12.580705Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m feature: Bass Slider
+[2m2026-02-21T10:13:12.580709Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   Slider(0.56)
+[2m2026-02-21T10:13:12.580715Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Updating Feature Value Bass Slider -> Slider(0.56)
+[2m2026-02-21T10:13:12.580720Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Applying toggle: Output Mode
+[2m2026-02-21T10:13:12.580727Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - value: true
+[2m2026-02-21T10:13:12.580731Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== set_feature =====
+[2m2026-02-21T10:13:12.580736Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m feature: Output Mode
+[2m2026-02-21T10:13:12.580740Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   Some(true)
+[2m2026-02-21T10:13:12.580746Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Resolved Feature:
+[2m2026-02-21T10:13:12.580750Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - id:           Routing(5)
+[2m2026-02-21T10:13:12.580755Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - value:        Toggle(false)
+[2m2026-02-21T10:13:12.580760Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - dependencies: None
+[2m2026-02-21T10:13:12.580764Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Determined final toggle value:
+[2m2026-02-21T10:13:12.580768Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - feature:    Output Mode
+[2m2026-02-21T10:13:12.580773Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - final_value: true
+[2m2026-02-21T10:13:12.580777Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== create_payload =====
+[2m2026-02-21T10:13:12.580782Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m id:      Routing(5)
+[2m2026-02-21T10:13:12.580786Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   100.0
+[2m2026-02-21T10:13:12.580790Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m create_payload completed: Routing(5)
+[2m2026-02-21T10:13:12.580800Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - data:   65 : [0x00, 0x5a, 0x2c, 0x05, 0x00, 0x04, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00]
+[2m2026-02-21T10:13:12.580809Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m - commit: 65 : [0x00, 0x5a, 0x2c, 0x01, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00]
+[2m2026-02-21T10:13:12.580814Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== create_payload completed =====
+[2m2026-02-21T10:13:12.580818Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Sending payload to device...
+[2m2026-02-21T10:13:12.597796Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Payload sent ¯\_(ツ)_/¯
+[2m2026-02-21T10:13:12.597838Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Updating feature value...
+[2m2026-02-21T10:13:12.597847Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== update_feature_value =====
+[2m2026-02-21T10:13:12.597854Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m feature: Output Mode
+[2m2026-02-21T10:13:12.597860Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m value:   Toggle(true)
+[2m2026-02-21T10:13:12.597869Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m Updating Feature Value Output Mode -> Toggle(true)
+[2m2026-02-21T10:13:12.597874Z[0m [34mDEBUG[0m [2mlinuxblaster_control[0m[2m:[0m ===== set_feature completed =====
+Web server listening on http://127.0.0.1:3311

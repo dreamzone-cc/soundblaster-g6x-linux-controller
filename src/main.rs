@@ -4,7 +4,7 @@ use tao::{
     event_loop::{ControlFlow, EventLoopBuilder},
     window::{WindowBuilder, Icon as TaoIcon},
     dpi::LogicalSize,
-    platform::unix::WindowExtUnix,
+    platform::unix::{WindowExtUnix,},
 };
 use tray_icon::{
     menu::{Menu, MenuItem, PredefinedMenuItem, MenuEvent},
@@ -78,7 +78,9 @@ fn main() {
 
     // Run event loop
     event_loop.run(move |event, _, control_flow| {
-        *control_flow = ControlFlow::Wait;
+        // Wake up event loop 5 times a second to poll tray/menu events
+        // otherwise it sleeps forever when the window is hidden
+        *control_flow = ControlFlow::WaitUntil(std::time::Instant::now() + std::time::Duration::from_millis(200));
 
         match event {
             Event::WindowEvent { event, window_id, .. } => {
