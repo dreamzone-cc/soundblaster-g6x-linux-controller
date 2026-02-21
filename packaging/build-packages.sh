@@ -232,6 +232,8 @@ modules:
       - install -Dm755 libayatana-appindicator3.so.1 /app/lib/libayatana-appindicator3.so.1
       - install -Dm755 libayatana-ido3-0.4.so.0 /app/lib/libayatana-ido3-0.4.so.0
       - install -Dm755 libayatana-indicator3.so.7 /app/lib/libayatana-indicator3.so.7
+      - install -Dm755 libdbusmenu-glib.so.4 /app/lib/libdbusmenu-glib.so.4
+      - install -Dm755 libdbusmenu-gtk3.so.4 /app/lib/libdbusmenu-gtk3.so.4
     sources:
       - type: file
         path: ../target/release/$BINARY_NAME
@@ -252,6 +254,12 @@ modules:
       - type: file
         path: /usr/lib/x86_64-linux-gnu/libayatana-indicator3.so.7
         dest-filename: libayatana-indicator3.so.7
+      - type: file
+        path: /usr/lib/x86_64-linux-gnu/libdbusmenu-glib.so.4
+        dest-filename: libdbusmenu-glib.so.4
+      - type: file
+        path: /usr/lib/x86_64-linux-gnu/libdbusmenu-gtk3.so.4
+        dest-filename: libdbusmenu-gtk3.so.4
 EOF
 
     # Build flatpak
