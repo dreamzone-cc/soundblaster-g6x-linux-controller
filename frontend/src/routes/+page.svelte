@@ -2257,14 +2257,14 @@
 
             <!-- Global Volume Controls -->
             <div
-                class="flex-1 p-4 px-8 flex flex-col lg:flex-row items-center justify-center gap-8 bg-[#141414]"
+                class="flex-1 p-3 md:p-4 px-3 md:px-8 flex flex-row items-center justify-center gap-3 md:gap-8 bg-[#141414] min-w-0"
             >
                 <!-- Global Output Volume -->
                 <div
-                    class="flex-1 flex items-center space-x-4 w-full md:max-w-md"
+                    class="flex-1 flex items-center space-x-2 md:space-x-4 w-full max-w-full md:max-w-md min-w-0"
                 >
                     <button
-                        class="p-2 rounded-lg transition-all duration-200 focus:outline-none {$device.mixer &&
+                        class="p-1.5 md:p-2 shrink-0 rounded-lg transition-all duration-200 focus:outline-none {$device.mixer &&
                         $device.mixer['Speaker'] &&
                         $device.mixer['Speaker']['playback_mute']
                             ? 'bg-red-600/20 text-red-500 shadow-[0_0_10px_rgba(220,38,38,0.3)]'
@@ -2296,11 +2296,13 @@
                             ? 'opacity-40'
                             : 'opacity-100'}"
                     >
-                        <div class="flex justify-between text-xs mb-1">
+                        <div
+                            class="flex justify-between text-[10px] md:text-xs mb-1"
+                        >
                             <span
-                                class="text-gray-300 font-medium tracking-wide"
+                                class="text-gray-300 font-medium tracking-wide flex items-center"
                             >
-                                Speakers
+                                <span class="truncate">Speakers</span>
                                 {#if $device.mixer && $device.mixer["Speaker"] && $device.mixer["Speaker"]["playback_mute"]}
                                     <span class="text-red-500 font-bold ml-1"
                                         >[MUTED]</span
@@ -2341,10 +2343,10 @@
 
                 <!-- Global Mic Volume -->
                 <div
-                    class="flex-1 flex items-center space-x-4 w-full md:max-w-md"
+                    class="flex-1 flex items-center space-x-2 md:space-x-4 w-full max-w-full md:max-w-md min-w-0"
                 >
                     <button
-                        class="p-2 rounded-lg transition-all duration-200 focus:outline-none {$device.mixer &&
+                        class="p-1.5 md:p-2 shrink-0 rounded-lg transition-all duration-200 focus:outline-none {$device.mixer &&
                         $device.mixer['External Mic'] &&
                         $device.mixer['External Mic']['capture_mute']
                             ? 'bg-red-600/20 text-red-500 shadow-[0_0_10px_rgba(220,38,38,0.3)]'
@@ -2378,11 +2380,17 @@
                             ? 'opacity-40'
                             : 'opacity-100'}"
                     >
-                        <div class="flex justify-between text-xs mb-1">
+                        <div
+                            class="flex justify-between text-[10px] md:text-xs mb-1"
+                        >
                             <span
-                                class="text-gray-300 font-medium tracking-wide"
+                                class="text-gray-300 font-medium tracking-wide flex items-center"
                             >
-                                Microphone
+                                <span class="truncate hidden sm:inline"
+                                    >Microphone</span
+                                ><span class="truncate inline sm:hidden"
+                                    >Mic</span
+                                >
                                 {#if $device.mixer && $device.mixer["External Mic"] && $device.mixer["External Mic"]["capture_mute"]}
                                     <span class="text-red-500 font-bold ml-1"
                                         >[MUTED]</span
