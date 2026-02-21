@@ -231,6 +231,7 @@ modules:
       - install -Dm755 soundblaster-g6x /app/bin/soundblaster-g6x
       - install -Dm644 soundblaster-g6x.desktop /app/share/applications/cc.dreamzone.SoundBlasterG6X.desktop
       - sed -i 's/^Icon=.*/Icon=cc.dreamzone.SoundBlasterG6X/g' /app/share/applications/cc.dreamzone.SoundBlasterG6X.desktop
+      - sed -i 's/^StartupWMClass=.*/StartupWMClass=cc.dreamzone.SoundBlasterG6X/g' /app/share/applications/cc.dreamzone.SoundBlasterG6X.desktop
       - install -Dm644 soundblaster-g6x.png /app/share/icons/hicolor/256x256/apps/cc.dreamzone.SoundBlasterG6X.png
       - install -Dm755 libxdo.so.3 /app/lib/libxdo.so.3
       - install -Dm755 libayatana-appindicator3.so.1 /app/lib/libayatana-appindicator3.so.1
