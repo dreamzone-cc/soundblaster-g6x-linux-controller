@@ -228,6 +228,10 @@ modules:
       - install -Dm755 soundblaster-g6x /app/bin/soundblaster-g6x
       - install -Dm644 soundblaster-g6x.desktop /app/share/applications/cc.dreamzone.SoundBlasterG6X.desktop
       - install -Dm644 soundblaster-g6x.png /app/share/icons/hicolor/256x256/apps/soundblaster-g6x.png
+      - install -Dm755 libxdo.so.3 /app/lib/libxdo.so.3
+      - install -Dm755 libayatana-appindicator3.so.1 /app/lib/libayatana-appindicator3.so.1
+      - install -Dm755 libayatana-ido3-0.4.so.0 /app/lib/libayatana-ido3-0.4.so.0
+      - install -Dm755 libayatana-indicator3.so.7 /app/lib/libayatana-indicator3.so.7
     sources:
       - type: file
         path: ../target/release/$BINARY_NAME
@@ -236,6 +240,18 @@ modules:
         path: ../packaging/soundblaster-g6x.desktop
       - type: file
         path: ../packaging/soundblaster-g6x.png
+      - type: file
+        path: /usr/lib/x86_64-linux-gnu/libxdo.so.3
+        dest-filename: libxdo.so.3
+      - type: file
+        path: /usr/lib/x86_64-linux-gnu/libayatana-appindicator3.so.1
+        dest-filename: libayatana-appindicator3.so.1
+      - type: file
+        path: /usr/lib/x86_64-linux-gnu/libayatana-ido3-0.4.so.0
+        dest-filename: libayatana-ido3-0.4.so.0
+      - type: file
+        path: /usr/lib/x86_64-linux-gnu/libayatana-indicator3.so.7
+        dest-filename: libayatana-indicator3.so.7
 EOF
 
     # Build flatpak
