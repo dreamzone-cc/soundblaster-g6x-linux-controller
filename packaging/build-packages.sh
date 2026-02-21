@@ -212,11 +212,13 @@ runtime-version: '47'
 sdk: org.gnome.Sdk
 command: soundblaster-g6x
 finish-args:
+  - --env=WEBKIT_DISABLE_DMABUF_RENDERER=1
   - --share=ipc
   - --share=network
   - --socket=x11
   - --socket=wayland
   - --socket=pulseaudio
+  - --device=dri
   - --device=all
   - --talk-name=org.freedesktop.Notifications
   - --talk-name=org.kde.StatusNotifierWatcher
