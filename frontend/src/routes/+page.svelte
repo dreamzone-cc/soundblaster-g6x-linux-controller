@@ -1,8 +1,91 @@
 <script>
     // @ts-nocheck
-    import { onMount } from "svelte";
+    import { onMount, tick } from "svelte";
     import { get } from "svelte/store";
     import { device } from "$lib/store";
+    import { browser } from "$app/environment";
+
+    // Ratio state mapped for global volume scaling
+    let gainSpkL = 1.0;
+    let gainSpkR = 1.0;
+    let gainMicL = 1.0;
+    let gainMicR = 1.0;
+    let lastSpkGlobal = 0.5;
+    let lastMicGlobal = 0.5;
+
+    $: if ($device?.mixer) {
+        const spk = $device.mixer["Speaker"];
+        if (spk) {
+            const l = spk.playback_vol_l ?? spk.playback_vol ?? 0;
+            const r = spk.playback_vol_r ?? spk.playback_vol ?? 0;
+            const inferredSpk = Math.max(
+                l / Math.max(gainSpkL, 0.001),
+                r / Math.max(gainSpkR, 0.001),
+            );
+            const newGlobal = Math.max(0, Math.min(1, inferredSpk));
+            if (Math.abs(newGlobal - lastSpkGlobal) > 0.02) {
+                lastSpkGlobal = newGlobal;
+            }
+        }
+        const mic = $device.mixer["External Mic"];
+        if (mic) {
+            const l = mic.capture_vol_l ?? mic.capture_vol ?? 0;
+            const r = mic.capture_vol_r ?? mic.capture_vol ?? 0;
+            const inferredMic = Math.max(
+                l / Math.max(gainMicL, 0.001),
+                r / Math.max(gainMicR, 0.001),
+            );
+            const newGlobal = Math.max(0, Math.min(1, inferredMic));
+            if (Math.abs(newGlobal - lastMicGlobal) > 0.02) {
+                lastMicGlobal = newGlobal;
+            }
+        }
+    }
+
+    function setGlobalSpk(val) {
+        device.updateMixer("Speaker", {
+            playback_vol_l: gainSpkL * val,
+            playback_vol_r: gainSpkR * val,
+        });
+    }
+    function setGlobalMic(val) {
+        device.updateMixer("External Mic", {
+            capture_vol_l: gainMicL * val,
+            capture_vol_r: gainMicR * val,
+        });
+    }
+    function setGainSpkL(val) {
+        gainSpkL = val;
+        if (browser) localStorage.setItem("gainSpkL", val.toString());
+        device.updateMixer("Speaker", {
+            playback_vol_l: gainSpkL * lastSpkGlobal,
+            playback_vol_r: gainSpkR * lastSpkGlobal,
+        });
+    }
+    function setGainSpkR(val) {
+        gainSpkR = val;
+        if (browser) localStorage.setItem("gainSpkR", val.toString());
+        device.updateMixer("Speaker", {
+            playback_vol_l: gainSpkL * lastSpkGlobal,
+            playback_vol_r: gainSpkR * lastSpkGlobal,
+        });
+    }
+    function setGainMicL(val) {
+        gainMicL = val;
+        if (browser) localStorage.setItem("gainMicL", val.toString());
+        device.updateMixer("External Mic", {
+            capture_vol_l: gainMicL * lastMicGlobal,
+            capture_vol_r: gainMicR * lastMicGlobal,
+        });
+    }
+    function setGainMicR(val) {
+        gainMicR = val;
+        if (browser) localStorage.setItem("gainMicR", val.toString());
+        device.updateMixer("External Mic", {
+            capture_vol_l: gainMicL * lastMicGlobal,
+            capture_vol_r: gainMicR * lastMicGlobal,
+        });
+    }
 
     // Icons
     import {
@@ -32,6 +115,12 @@
     let activeTab = "sbx";
 
     onMount(() => {
+        if (browser) {
+            gainSpkL = parseFloat(localStorage.getItem("gainSpkL") || "1.0");
+            gainSpkR = parseFloat(localStorage.getItem("gainSpkR") || "1.0");
+            gainMicL = parseFloat(localStorage.getItem("gainMicL") || "1.0");
+            gainMicR = parseFloat(localStorage.getItem("gainMicR") || "1.0");
+        }
         device.startPolling(1500); // Poll every 1.5 seconds
         return () => device.stopPolling();
     });
@@ -1420,8 +1509,9 @@
                                     ? spkData.playback_vol_r
                                     : spkVol}
                             {@const balanceRaw =
-                                spkL + spkR > 0
-                                    ? (spkR - spkL) / Math.max(spkL, spkR, 0.01)
+                                gainSpkL + gainSpkR > 0
+                                    ? (gainSpkR - gainSpkL) /
+                                      Math.max(gainSpkL, gainSpkR, 0.01)
                                     : 0}
                             <div
                                 class="bg-gradient-to-br from-[#0d1117] via-[#111827] to-[#0f172a] border border-blue-500/20 rounded-2xl p-8 relative overflow-hidden shadow-xl shadow-blue-900/10"
@@ -1511,7 +1601,7 @@
                                             <div class="text-right">
                                                 <span
                                                     class="text-2xl font-black text-blue-300 font-mono tabular-nums"
-                                                    >{(spkL * 100).toFixed(
+                                                    >{(gainSpkL * 100).toFixed(
                                                         0,
                                                     )}</span
                                                 >
@@ -1527,7 +1617,7 @@
                                         >
                                             <div
                                                 class="absolute inset-y-0 left-0 rounded-full transition-all duration-150"
-                                                style="width: {spkL *
+                                                style="width: {gainSpkL *
                                                     100}%; background: linear-gradient(90deg, #1d4ed8, #3b82f6, #60a5fa);"
                                             ></div>
                                         </div>
@@ -1537,14 +1627,13 @@
                                             min="0"
                                             max="1"
                                             step="0.01"
-                                            value={spkL}
+                                            value={gainSpkL}
                                             on:input={(e) =>
-                                                device.updateMixer("Speaker", {
-                                                    playback_vol_l: parseFloat(
+                                                setGainSpkL(
+                                                    parseFloat(
                                                         e.currentTarget.value,
                                                     ),
-                                                    playback_vol_r: spkR,
-                                                })}
+                                                )}
                                             class="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-blue-500 hover:accent-blue-400"
                                         />
                                     </div>
@@ -1583,7 +1672,7 @@
                                             <div class="text-right">
                                                 <span
                                                     class="text-2xl font-black text-cyan-300 font-mono tabular-nums"
-                                                    >{(spkR * 100).toFixed(
+                                                    >{(gainSpkR * 100).toFixed(
                                                         0,
                                                     )}</span
                                                 >
@@ -1599,7 +1688,7 @@
                                         >
                                             <div
                                                 class="absolute inset-y-0 left-0 rounded-full transition-all duration-150"
-                                                style="width: {spkR *
+                                                style="width: {gainSpkR *
                                                     100}%; background: linear-gradient(90deg, #0e7490, #06b6d4, #67e8f9);"
                                             ></div>
                                         </div>
@@ -1609,14 +1698,13 @@
                                             min="0"
                                             max="1"
                                             step="0.01"
-                                            value={spkR}
+                                            value={gainSpkR}
                                             on:input={(e) =>
-                                                device.updateMixer("Speaker", {
-                                                    playback_vol_l: spkL,
-                                                    playback_vol_r: parseFloat(
+                                                setGainSpkR(
+                                                    parseFloat(
                                                         e.currentTarget.value,
                                                     ),
-                                                })}
+                                                )}
                                             class="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-cyan-500 hover:accent-cyan-400"
                                         />
                                     </div>
@@ -1679,8 +1767,9 @@
                                     ? micData.capture_vol_r
                                     : micVol}
                             {@const micBalanceRaw =
-                                micL + micR > 0
-                                    ? (micR - micL) / Math.max(micL, micR, 0.01)
+                                gainMicL + gainMicR > 0
+                                    ? (gainMicR - gainMicL) /
+                                      Math.max(gainMicL, gainMicR, 0.01)
                                     : 0}
                             <div
                                 class="bg-gradient-to-br from-[#170d0d] via-[#1a1111] to-[#1c0f14] border border-red-500/20 rounded-2xl p-8 relative overflow-hidden shadow-xl shadow-red-900/10"
@@ -1771,7 +1860,7 @@
                                             <div class="text-right">
                                                 <span
                                                     class="text-2xl font-black text-red-300 font-mono tabular-nums"
-                                                    >{(micL * 100).toFixed(
+                                                    >{(gainMicL * 100).toFixed(
                                                         0,
                                                     )}</span
                                                 >
@@ -1787,7 +1876,7 @@
                                         >
                                             <div
                                                 class="absolute inset-y-0 left-0 rounded-full transition-all duration-150"
-                                                style="width: {micL *
+                                                style="width: {gainMicL *
                                                     100}%; background: linear-gradient(90deg, #991b1b, #dc2626, #f87171);"
                                             ></div>
                                         </div>
@@ -1797,18 +1886,12 @@
                                             min="0"
                                             max="1"
                                             step="0.01"
-                                            value={micL}
+                                            value={gainMicL}
                                             on:input={(e) =>
-                                                device.updateMixer(
-                                                    "External Mic",
-                                                    {
-                                                        capture_vol_l:
-                                                            parseFloat(
-                                                                e.currentTarget
-                                                                    .value,
-                                                            ),
-                                                        capture_vol_r: micR,
-                                                    },
+                                                setGainMicL(
+                                                    parseFloat(
+                                                        e.currentTarget.value,
+                                                    ),
                                                 )}
                                             class="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-red-500 hover:accent-red-400"
                                         />
@@ -1848,7 +1931,7 @@
                                             <div class="text-right">
                                                 <span
                                                     class="text-2xl font-black text-rose-300 font-mono tabular-nums"
-                                                    >{(micR * 100).toFixed(
+                                                    >{(gainMicR * 100).toFixed(
                                                         0,
                                                     )}</span
                                                 >
@@ -1864,7 +1947,7 @@
                                         >
                                             <div
                                                 class="absolute inset-y-0 left-0 rounded-full transition-all duration-150"
-                                                style="width: {micR *
+                                                style="width: {gainMicR *
                                                     100}%; background: linear-gradient(90deg, #9f1239, #e11d48, #fb7185);"
                                             ></div>
                                         </div>
@@ -1874,18 +1957,12 @@
                                             min="0"
                                             max="1"
                                             step="0.01"
-                                            value={micR}
+                                            value={gainMicR}
                                             on:input={(e) =>
-                                                device.updateMixer(
-                                                    "External Mic",
-                                                    {
-                                                        capture_vol_l: micL,
-                                                        capture_vol_r:
-                                                            parseFloat(
-                                                                e.currentTarget
-                                                                    .value,
-                                                            ),
-                                                    },
+                                                setGainMicR(
+                                                    parseFloat(
+                                                        e.currentTarget.value,
+                                                    ),
                                                 )}
                                             class="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-rose-500 hover:accent-rose-400"
                                         />
@@ -2310,16 +2387,7 @@
                                 {/if}
                             </span>
                             <span class="text-gray-500 font-mono">
-                                {$device.mixer &&
-                                $device.mixer["Speaker"] &&
-                                $device.mixer["Speaker"]["playback_vol"] !==
-                                    undefined
-                                    ? (
-                                          $device.mixer["Speaker"][
-                                              "playback_vol"
-                                          ] * 100
-                                      ).toFixed(0)
-                                    : 0}%
+                                {(lastSpkGlobal * 100).toFixed(0)}%
                             </span>
                         </div>
                         <input
@@ -2327,15 +2395,12 @@
                             min="0"
                             max="1"
                             step="0.01"
-                            value={$device.mixer && $device.mixer["Speaker"]
-                                ? $device.mixer["Speaker"]["playback_vol"]
-                                : 0}
-                            on:input={(e) =>
-                                device.updateMixer("Speaker", {
-                                    playback_vol: parseFloat(
-                                        e.currentTarget.value,
-                                    ),
-                                })}
+                            value={lastSpkGlobal}
+                            on:input={(e) => {
+                                const val = parseFloat(e.currentTarget.value);
+                                lastSpkGlobal = val;
+                                setGlobalSpk(val);
+                            }}
                             class="w-full h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-blue-500 hover:accent-blue-400"
                         />
                     </div>
@@ -2398,16 +2463,7 @@
                                 {/if}
                             </span>
                             <span class="text-gray-500 font-mono">
-                                {$device.mixer &&
-                                $device.mixer["External Mic"] &&
-                                $device.mixer["External Mic"]["capture_vol"] !==
-                                    undefined
-                                    ? (
-                                          $device.mixer["External Mic"][
-                                              "capture_vol"
-                                          ] * 100
-                                      ).toFixed(0)
-                                    : 0}%
+                                {(lastMicGlobal * 100).toFixed(0)}%
                             </span>
                         </div>
                         <input
@@ -2415,16 +2471,12 @@
                             min="0"
                             max="1"
                             step="0.01"
-                            value={$device.mixer &&
-                            $device.mixer["External Mic"]
-                                ? $device.mixer["External Mic"]["capture_vol"]
-                                : 0}
-                            on:input={(e) =>
-                                device.updateMixer("External Mic", {
-                                    capture_vol: parseFloat(
-                                        e.currentTarget.value,
-                                    ),
-                                })}
+                            value={lastMicGlobal}
+                            on:input={(e) => {
+                                const val = parseFloat(e.currentTarget.value);
+                                lastMicGlobal = val;
+                                setGlobalMic(val);
+                            }}
                             class="w-full h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-red-600 hover:accent-red-500"
                         />
                     </div>
