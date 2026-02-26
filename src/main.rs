@@ -18,15 +18,6 @@ use tracing::Level;
 fn main() {
     let start_minimized = std::env::args().any(|a| a == "--minimized");
 
-    // Flatpak AppIndicator workaround: point TMPDIR to XDG_CACHE_HOME so host can read the icon tempfile
-    if std::env::var("FLATPAK_ID").is_ok() {
-        if let Ok(cache_home) = std::env::var("XDG_CACHE_HOME") {
-            unsafe { std::env::set_var("TMPDIR", cache_home); }
-        } else if let Ok(home) = std::env::var("HOME") {
-            unsafe { std::env::set_var("TMPDIR", format!("{}/.cache", home)); }
-        }
-    }
-
     // Try to connect to existing instance
     if std::net::TcpStream::connect("127.0.0.1:3311").is_ok() {
         // App is already running, ping it to show window
@@ -110,12 +101,21 @@ fn main() {
     tray_menu.append(&PredefinedMenuItem::separator()).unwrap();
     tray_menu.append(&quit_item).unwrap();
 
-    let _tray_icon = TrayIconBuilder::new()
+    let mut builder = TrayIconBuilder::new()
         .with_menu(Box::new(tray_menu))
         .with_tooltip("Sound Blaster G6 Control")
-        .with_icon(load_tray_icon())
-        .build()
-        .unwrap();
+        .with_icon(load_tray_icon());
+
+    #[cfg(target_os = "linux")]
+    if std::env::var("FLATPAK_ID").is_ok() {
+        if let Ok(cache_home) = std::env::var("XDG_CACHE_HOME") {
+            builder = builder.with_temp_dir_path(cache_home);
+        } else if let Ok(home) = std::env::var("HOME") {
+            builder = builder.with_temp_dir_path(format!("{}/.cache", home));
+        }
+    }
+
+    let _tray_icon = builder.build().unwrap();
 
     // Run event loop
     event_loop.run(move |event, _, control_flow| {
