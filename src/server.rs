@@ -15,6 +15,13 @@ use tower_http::cors::CorsLayer;
 use crate::api::{self, AppState};
 use crate::BlasterXG6;
 
+pub static SHOW_WINDOW_REQUEST: std::sync::atomic::AtomicBool = std::sync::atomic::AtomicBool::new(false);
+
+pub async fn show_window() -> impl IntoResponse {
+    SHOW_WINDOW_REQUEST.store(true, std::sync::atomic::Ordering::Relaxed);
+    StatusCode::OK
+}
+
 #[derive(RustEmbed)]
 #[folder = "frontend/build/"]
 pub struct Assets;
@@ -29,6 +36,7 @@ pub async fn start_server(device: BlasterXG6) {
         .route("/api/feature", post(api::set_feature))
         .route("/api/mixer/status", get(api::get_mixer))
         .route("/api/mixer/feature", post(api::set_mixer))
+        .route("/api/show_window", post(show_window))
         .fallback(static_handler)
         .with_state(shared_state)
         .layer(CorsLayer::permissive());

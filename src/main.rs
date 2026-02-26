@@ -16,8 +16,48 @@ use wry::{WebViewBuilder, WebViewBuilderExtUnix};
 use tracing::Level;
 
 fn main() {
-    // Parse CLI args
     let start_minimized = std::env::args().any(|a| a == "--minimized");
+
+    // Flatpak AppIndicator workaround: point TMPDIR to XDG_CACHE_HOME so host can read the icon tempfile
+    if std::env::var("FLATPAK_ID").is_ok() {
+        if let Ok(cache_home) = std::env::var("XDG_CACHE_HOME") {
+            unsafe { std::env::set_var("TMPDIR", cache_home); }
+        } else if let Ok(home) = std::env::var("HOME") {
+            unsafe { std::env::set_var("TMPDIR", format!("{}/.cache", home)); }
+        }
+    }
+
+    // Try to connect to existing instance
+    if std::net::TcpStream::connect("127.0.0.1:3311").is_ok() {
+        // App is already running, ping it to show window
+        if let Ok(mut stream) = std::net::TcpStream::connect("127.0.0.1:3311") {
+            use std::io::Write;
+            let _ = stream.write_all(b"POST /api/show_window HTTP/1.1\r\nHost: 127.0.0.1\r\nContent-Length: 0\r\nConnection: close\r\n\r\n");
+            std::thread::sleep(std::time::Duration::from_millis(100));
+        }
+        println!("Application is already running. Existing instance brought to front.");
+        std::process::exit(0);
+    }
+
+    // Autostart configuration checking
+    std::thread::spawn(|| {
+        let is_flatpak = std::env::var("FLATPAK_ID").is_ok();
+        
+        let autostart_script = format!(
+            "mkdir -p ~/.config/autostart && echo '[Desktop Entry]\nType=Application\nName=Sound Blaster G6X Controller\nExec={} --minimized\nIcon=cc.dreamzone.SoundBlasterG6X\nTerminal=false\nStartupNotify=false\n' > ~/.config/autostart/cc.dreamzone.SoundBlasterG6X.desktop",
+            if is_flatpak { "flatpak run cc.dreamzone.SoundBlasterG6X" } else { "soundblaster-g6x" }
+        );
+        
+        if is_flatpak {
+            let _ = std::process::Command::new("flatpak-spawn")
+                .args(["--host", "bash", "-c", &autostart_script])
+                .output();
+        } else {
+            let _ = std::process::Command::new("bash")
+                .args(["-c", &autostart_script])
+                .output();
+        }
+    });
 
     // Set up event loop first to initialize GTK on Linux
     let event_loop = EventLoopBuilder::new().build();
@@ -82,6 +122,12 @@ fn main() {
         // Wake up event loop 5 times a second to poll tray/menu events
         // otherwise it sleeps forever when the window is hidden
         *control_flow = ControlFlow::WaitUntil(std::time::Instant::now() + std::time::Duration::from_millis(200));
+
+        if linuxblaster_control::server::SHOW_WINDOW_REQUEST.swap(false, std::sync::atomic::Ordering::Relaxed) {
+             window.set_visible(true);
+             window.set_focus();
+             window.request_user_attention(Some(tao::window::UserAttentionType::Critical));
+        }
 
         match event {
             Event::WindowEvent { event, window_id, .. } => {
