@@ -8,6 +8,17 @@ use std::sync::Arc;
 use tokio::sync::Mutex;
 use crate::BlasterXG6;
 
+fn run_sys_cmd(cmd: &str, args: &[&str]) -> Option<std::process::Output> {
+    if std::path::Path::new("/.flatpak-info").exists() {
+        let mut spawn_args = vec!["--host", cmd];
+        spawn_args.extend_from_slice(args);
+        std::process::Command::new("flatpak-spawn").args(&spawn_args).output().ok()
+    } else {
+        std::process::Command::new(cmd).args(args).output().ok()
+    }
+}
+
+
 // Shared state
 pub struct AppState {
     pub device: Mutex<BlasterXG6>,
@@ -27,7 +38,7 @@ pub struct MixerResponse {
 
 fn get_pulse_device(prefix: &str, is_sink: bool) -> Option<String> {
     let mode = if is_sink { "sinks" } else { "sources" };
-    let out = std::process::Command::new("pactl").args(["list", "short", mode]).output().ok()?;
+    let out = run_sys_cmd("pactl", &["list", "short", mode])?;
     let s = String::from_utf8_lossy(&out.stdout);
     for line in s.lines() {
         if line.contains(prefix) && (is_sink || !line.contains(".monitor")) {
@@ -41,7 +52,7 @@ fn get_pulse_device(prefix: &str, is_sink: bool) -> Option<String> {
 
 fn get_pulse_vols(name: &str, is_source: bool) -> (Option<f32>, Option<f32>, Option<f32>) {
     let cmd = if is_source { "get-source-volume" } else { "get-sink-volume" };
-    let out = std::process::Command::new("pactl").args([cmd, name]).output().ok();
+    let out = run_sys_cmd("pactl", &[cmd, name]);
     if out.is_none() {
         return (None, None, None);
     }
@@ -88,7 +99,7 @@ fn get_pulse_vols(name: &str, is_source: bool) -> (Option<f32>, Option<f32>, Opt
 
 fn get_pulse_mute(name: &str, is_source: bool) -> Option<bool> {
     let cmd = if is_source { "get-source-mute" } else { "get-sink-mute" };
-    let out = std::process::Command::new("pactl").args([cmd, name]).output().ok()?;
+    let out = run_sys_cmd("pactl", &[cmd, name])?;
     let s = String::from_utf8_lossy(&out.stdout);
     if s.contains("yes") { Some(true) } else if s.contains("no") { Some(false) } else { None }
 }
@@ -101,7 +112,7 @@ pub async fn get_mixer() -> impl IntoResponse {
     let g6_source = get_pulse_device("Sound_BlasterX_G6", false);
 
     for &ctrl in &controls {
-        let output = std::process::Command::new("amixer").args(["-c", "G6", "sget", ctrl]).output().ok();
+        let output = run_sys_cmd("amixer", &["-c", "G6", "sget", ctrl]);
         if let Some(out) = output {
             let s = String::from_utf8_lossy(&out.stdout);
             let mut p_vol = None;
@@ -238,7 +249,7 @@ pub async fn set_mixer(Json(payload): Json<MixerSetRequest>) -> impl IntoRespons
         let pct_r = format!("{}%", (p_r * 100.0).round());
 
         if payload.name == "Speaker" && g6_sink.is_some() {
-            let _ = std::process::Command::new("pactl").args(["set-sink-volume", g6_sink.as_ref().unwrap(), &pct_l, &pct_r]).status();
+            let _ = run_sys_cmd("pactl", &["set-sink-volume", g6_sink.as_ref().unwrap().as_str(), &pct_l, &pct_r]);
         } else {
             let pct = format!("{},{}", pct_l, pct_r); // amixer uses 40%,50% format
             let args = if payload.name == "Speaker" || payload.name == "What U Hear" {
@@ -246,7 +257,7 @@ pub async fn set_mixer(Json(payload): Json<MixerSetRequest>) -> impl IntoRespons
             } else {
                 vec!["-c", "G6", "sset", &payload.name, "0", &pct, "playback"]
             };
-            let _ = std::process::Command::new("amixer").args(&args).status();
+            let _ = run_sys_cmd("amixer", &args[..]);
         }
     }
 
@@ -263,7 +274,7 @@ pub async fn set_mixer(Json(payload): Json<MixerSetRequest>) -> impl IntoRespons
         let pct_r = format!("{}%", (c_r * 100.0).round());
 
         if payload.name == "External Mic" && g6_source.is_some() {
-            let _ = std::process::Command::new("pactl").args(["set-source-volume", g6_source.as_ref().unwrap(), &pct_l, &pct_r]).status();
+            let _ = run_sys_cmd("pactl", &["set-source-volume", g6_source.as_ref().unwrap().as_str(), &pct_l, &pct_r]);
         } else {
             let pct = format!("{},{}", pct_l, pct_r);
             let args = if payload.name == "Speaker" || payload.name == "What U Hear" {
@@ -271,13 +282,13 @@ pub async fn set_mixer(Json(payload): Json<MixerSetRequest>) -> impl IntoRespons
             } else {
                 vec!["-c", "G6", "sset", &payload.name, "0", &pct, "capture"]
             };
-            let _ = std::process::Command::new("amixer").args(&args).status();
+            let _ = run_sys_cmd("amixer", &args[..]);
         }
     }
     if let Some(m) = payload.playback_mute {
         let state = if m { "1" } else { "0" };
         if payload.name == "Speaker" && g6_sink.is_some() {
-            let _ = std::process::Command::new("pactl").args(["set-sink-mute", g6_sink.as_ref().unwrap(), state]).status();
+            let _ = run_sys_cmd("pactl", &["set-sink-mute", g6_sink.as_ref().unwrap().as_str(), state]);
         } else {
             let a_state = if m { "mute" } else { "unmute" };
             let args = if payload.name == "Speaker" || payload.name == "What U Hear" {
@@ -285,13 +296,13 @@ pub async fn set_mixer(Json(payload): Json<MixerSetRequest>) -> impl IntoRespons
             } else {
                 vec!["-c", "G6", "sset", &payload.name, "0", a_state, "playback"]
             };
-            let _ = std::process::Command::new("amixer").args(&args).status();
+            let _ = run_sys_cmd("amixer", &args[..]);
         }
     }
     if let Some(m) = payload.capture_mute {
         let state = if m { "1" } else { "0" };
         if payload.name == "External Mic" && g6_source.is_some() {
-            let _ = std::process::Command::new("pactl").args(["set-source-mute", g6_source.as_ref().unwrap(), state]).status();
+            let _ = run_sys_cmd("pactl", &["set-source-mute", g6_source.as_ref().unwrap().as_str(), state]);
         } else {
             let a_state = if m { "mute" } else { "unmute" };
             let args = if payload.name == "Speaker" || payload.name == "What U Hear" {
@@ -299,7 +310,7 @@ pub async fn set_mixer(Json(payload): Json<MixerSetRequest>) -> impl IntoRespons
             } else {
                 vec!["-c", "G6", "sset", &payload.name, "0", a_state, "capture"]
             };
-            let _ = std::process::Command::new("amixer").args(&args).status();
+            let _ = run_sys_cmd("amixer", &args[..]);
         }
     }
     StatusCode::OK.into_response()
